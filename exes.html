@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Решение алгоритмической задачи</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+      padding: 50px;
+    }
+    input, button {
+      font-size: 16px;
+      padding: 5px 10px;
+      margin: 10px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    
+  </style>
+</head>
+<body>
+
+<h1>Определение числа</h1>
+<p>Введите вещественное число:</p>
+<input type="number" step="any" id="numberInput" placeholder="Например: 3.14">
+<button id="checkBtn">Проверить</button>
+<input type="number" step="any" id="numberInput2" placeholder="2 окно">
+
+<div id="result"></div>
+
+<script>
+  document.getElementById('checkBtn').addEventListener('click', function() {
+    const input = document.getElementById('numberInput').value;
+    const num = parseFloat(input);
+
+    const input2 = document.getElementById('numberInput2').value;
+    const num2 = parseFloat(input2);
+
+    let message;
+
+    if (isNaN(num) || isNaN(num2)) {
+        message = "Пожалуйста, введите корректное число!";
+    } else if (num + num2 > 100) {
+        message = "Число больше 100.";
+    } else if (num + num2 < 100) {
+        message = "Число меньше 100.";
+    } else {
+        message = "Эквивалентны.";
+    }
+
+    document.getElementById('result').innerText = message;
+});
+
+</script>
+
+</body>
+</html>
